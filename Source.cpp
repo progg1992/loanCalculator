@@ -17,17 +17,21 @@ int main()
 	// get input
 	int choice = 0;
 
+	// Show Menu
+	cout << "Menu\n" << endl;
+	
+	cout << "1) Add A Loan" << endl;
+	cout << "2) Delete A Loan" << endl;
+	cout << "3) Find A Loan" << endl;
+	cout << "4) Display All Loans" << endl;
+	cout << "5) Quit\n" << endl;
+
+	// Get the User's Choice
 	cout << "Enter your Choice: ";
 	cin >> choice;
 
-	if (choice == 5)
-	{
-		cout << "\nGoodbye!" << endl;
-	}
-	else
-	{
-		cout << "\nRun some code..." << endl;
-	}
+	//Run Code based on the user's choice
+
 	//pause
 	cout << endl;
 	system("pause");
