@@ -33,23 +33,23 @@ int main()
 	// Run Code based on the user's choice
 	switch (choice)
 	{
-	case 1:
+	case '1':
 		// Add
 		cout << "\nAdding a Loan to the file..." << endl;
 		break;
-	case 2:
+	case '2':
 		// Delete
 		cout << "\nDeleting a loan from the file..." << endl;
 		break;
-	case 3:
+	case '3':
 		// Find
 		cout << "\nSearching for a loan in the file..." << endl;
 		break;
-	case 4:
+	case '4':
 		// Display All
 		cout << "\nDisplaying all loans from the file.." << endl;
 		break;
-	case 5:
+	case '5':
 		// Exit
 		cout << "\nGoodbye!" << endl;
 		break;
