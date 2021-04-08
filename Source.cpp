@@ -39,14 +39,7 @@ int main()
 			cout << "\Error!! Please use numbers only. No letters or Characters Allowed!!" << endl;
 			choice = -1;
 		}
-
-		while (choice < 1 || choice > 5)
-		{
-			cout << "\nError!! Choice must be 1 to 5." << endl;
-			cout << "Please Enter your choice: ";
-			cin >> choice;
-		}
-
+		
 		// Run Code based on the user's choice
 		switch (choice)
 		{
