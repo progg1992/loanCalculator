@@ -17,50 +17,67 @@ int main()
 	// get input
 	int choice = 0;
 
-	// Show Menu
-	cout << "Menu\n" << endl;
-	
-	cout << "1) Add A Loan" << endl;
-	cout << "2) Delete A Loan" << endl;
-	cout << "3) Find A Loan" << endl;
-	cout << "4) Display All Loans" << endl;
-	cout << "5) Quit\n" << endl;
-
-	// Get the User's Choice
-	cout << "Enter your Choice: ";
-	cin >> choice;
-
-	// Run Code based on the user's choice
-	switch (choice)
+	do
 	{
-	case '1':
-		// Add
-		cout << "\nAdding a Loan to the file..." << endl;
-		break;
-	case '2':
-		// Delete
-		cout << "\nDeleting a loan from the file..." << endl;
-		break;
-	case '3':
-		// Find
-		cout << "\nSearching for a loan in the file..." << endl;
-		break;
-	case '4':
-		// Display All
-		cout << "\nDisplaying all loans from the file.." << endl;
-		break;
-	case '5':
-		// Exit
-		cout << "\nGoodbye!" << endl;
-		break;
-	default:
-		cout << "Please choose option 1 thru 5 only\n" << endl;
-		break;
-	}
+		// Show Menu
+		system("cls");
+		cout << "Menu\n" << endl;
+		cout << "1) Add A Loan" << endl;
+		cout << "2) Delete A Loan" << endl;
+		cout << "3) Find A Loan" << endl;
+		cout << "4) Display All Loans" << endl;
+		cout << "5) Quit\n" << endl;
 
-	//pause
-	cout << endl;
-	system("pause");
+		// Get the User's Choice
+		cout << "Enter your Choice: ";
+		cin >> choice;
 
+		if (cin.fail())
+		{
+			cin.clear();
+			cin.ignore(100, '\n');
+			cout << "\Error!! Please use numbers only. No letters or Characters Allowed!!" << endl;
+			choice = -1;
+		}
+
+		while (choice < 1 || choice > 5)
+		{
+			cout << "\nError!! Choice must be 1 to 5." << endl;
+			cout << "Please Enter your choice: ";
+			cin >> choice;
+		}
+
+		// Run Code based on the user's choice
+		switch (choice)
+		{
+		case 1:
+			// Add
+			cout << "\nAdding a Loan to the file..." << endl;
+			break;
+		case 3:
+			// Delete
+			cout << "\nDeleting a loan from the file..." << endl;
+			break;
+		case '3':
+			// Find
+			cout << "\nSearching for a loan in the file..." << endl;
+			break;
+		case 4:
+			// Display All
+			cout << "\nDisplaying all loans from the file.." << endl;
+			break;
+		case 5:
+			// Exit
+			cout << "\nGoodbye!" << endl;
+			break;
+		default:
+			cout << "Please choose option 1 thru 5 only\n" << endl;
+			break;
+		}
+
+		//pause
+		cout << endl;
+		system("pause");
+	} 	while (choice != 5);
 	return 0;
 }
