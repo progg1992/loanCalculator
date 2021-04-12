@@ -13,6 +13,10 @@ Course project
 using namespace std;
 
 void arrayTutorial();
+void addLoan();
+void deleteLoan();
+void findLoan();
+void displayAllLoans();
 
 /// Entry point to the application
 int main()
@@ -82,19 +86,19 @@ int main()
 		{
 		case 1:
 			// Add
-			cout << "\nAdding a Loan to the file..." << endl;
+			addLoan();
 			break;
 		case 2:
 			// Delete
-			cout << "\nDeleting a loan from the file..." << endl;
+			deleteLoan();
 			break;
 		case 3:
 			// Find
-			cout << "\nSearching for a loan in the file..." << endl;
+			findLoan();
 			break;
 		case 4:
 			// Display All
-			cout << "\nDisplaying all loans from the file.." << endl;
+			displayAllLoans();
 			break;
 		case 5:
 			// Exit
@@ -148,3 +152,24 @@ void arrayTutorial()
 		cout << numbers[i] << endl;
 	}
 }
+
+void addLoan()
+{
+	cout << "Adding loan to the file..." << endl;
+}
+
+void deleteLoan()
+{
+	cout << "Deleting loan from the file.." << endl;
+}
+
+void findLoan()
+{
+	cout << "Finding loan from our files..." << endl;
+}
+
+void displayAllLoans()
+{
+	cout << "Displaying all loans from our files..." << endl;
+}
+
