@@ -9,16 +9,21 @@ Course project
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include <ctime>
 using namespace std;
+
+void arrayTutorial();
 
 /// Entry point to the application
 int main()
 {
+	srand(time(0));
+
 	string password = "";
-	string appPassword = "root170C";
+	string appPassword = "CEIS170C";
 	bool success = false;
 
-	for (int i; i = 0; i < 3; i++)
+	for (int i = 0; i < 3; i++)
 	{
 		cout << "Enter the application password: ";
 		cin >> password;
@@ -57,7 +62,8 @@ int main()
 		cout << "2) Delete A Loan" << endl;
 		cout << "3) Find A Loan" << endl;
 		cout << "4) Display All Loans" << endl;
-		cout << "5) Quit\n" << endl;
+		cout << "5) Array Tutorial" << endl;
+		cout << "6) Quit\n" << endl;
 
 		// Get the User's Choice
 		cout << "Enter your Choice: ";
@@ -92,7 +98,10 @@ int main()
 			break;
 		case 5:
 			// Exit
-			cout << "\nGoodbye!" << endl;
+			arrayTutorial();
+			break;
+		case 6:
+			cout << "\nGoodbye! Thanks for using The DeVry Student Bank's Loan Calculator.";
 			break;
 		default:
 			cout << "Please choose option 1 thru 5 only\n" << endl;
@@ -102,6 +111,40 @@ int main()
 		//pause
 		cout << endl;
 		system("pause");
-	} 	while (choice != 5);
+	} 	while (choice != 6);
 	return 0;
+}
+
+void arrayTutorial()
+{
+	// Create array
+	cout << "\nArray Tutorial\n" << endl;
+	cout << "First step: create the array" << endl;
+	cout << "\tdatatype arrayName[ size ];" << endl;
+	cout << "\t- For example: int numbers[10];      // create integer array with ten 'slots'" << endl;
+	cout << endl;
+	cout << "Second step: load the array using a for loop" << endl;
+	cout << "\tfor( int i = 0; i < arraySize; i++ ) " << endl;
+	cout << "\t{" << endl;
+	cout << "\t\tarrayName[i] = value;" << endl;
+	cout << "\t}" << endl;
+	cout << endl;
+	cout << "Third step: Display the contents of the array using a for loop" << endl;
+	cout << "\tfor( int i = 0; i< arraysize; i++ )" << endl;
+	cout << "\t{" << endl;
+	cout << "\t\tcout << arrayName[i] << endl;" << endl;
+	cout << "\t}" << endl;
+	cout << "\n\nHere is the output of the integer array from above" << endl;
+	int numbers[10];
+	int min = 10;
+	int max = 99;
+	for (int i = 0; i < 10; i++)
+	{
+		numbers[i] = rand() % (max - min + 1) + min;
+	}
+
+	for (int i = 0; i < 10; i++)
+	{
+		cout << numbers[i] << endl;
+	}
 }
