@@ -76,7 +76,7 @@ int main()
 		// Get the User's Choice
 		cout << "Enter your Choice: ";
 		cin >> choice;
-		cin.ignore(100, '\n');
+		
 
 		if (cin.fail())
 		{
@@ -84,6 +84,10 @@ int main()
 			cin.ignore(100, '\n');
 			cout << "\Error!! Please use numbers only. No letters or Characters Allowed!!" << endl;
 			choice = -1;
+		}
+		else
+		{
+			cin.ignore(100, '\n');
 		}
 		
 		// Run Code based on the user's choice
@@ -190,6 +194,43 @@ void deleteLoan()
 
 void findLoan()
 {
+	string loanOwner;
+	bool found = false;
+
+	cout << "\nEnter Your Name to Find Your Loans: ";
+	getline(cin, loanOwner);
+
+	// Open File
+	ifstream iFile(LOAN_FILENAME);
+	if (iFile.is_open())
+	{
+		// Read File until we find the drink
+		while (iFile.peek() > -1)
+		{
+			string name, loanAmount, interestRate, years;
+			getline(iFile, name, ',');
+			getline(iFile, loanAmount, ',');
+			getline(iFile, interestRate, ',');
+			getline(iFile, years, ',');
+
+			if (name == loanOwner)
+			{
+				found = true;
+				cout << "\n" << name << " " << loanAmount<< " " << interestRate << " " << years << endl;
+				cout << endl;
+				break;
+			}
+		}
+
+		// Close File
+		iFile.close();
+
+		// Display Not Found Message
+		if (!found)
+		{
+			cout << "\n" << loanOwner << " does not have any loans with us" << endl;
+		}
+	}
 	cout << "Finding loan from our files..." << endl;
 }
 
