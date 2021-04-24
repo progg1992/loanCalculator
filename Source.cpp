@@ -10,6 +10,7 @@ Course project
 #include <string>
 #include <iomanip>
 #include <ctime>
+#include <fstream>
 using namespace std;
 
 void arrayTutorial();
@@ -17,6 +18,9 @@ void addLoan();
 void deleteLoan();
 void findLoan();
 void displayAllLoans();
+
+//
+const string LOAN_FILENAME = "Loans.csv";
 
 /// Entry point to the application
 int main()
@@ -72,6 +76,7 @@ int main()
 		// Get the User's Choice
 		cout << "Enter your Choice: ";
 		cin >> choice;
+		cin.ignore(100, '\n');
 
 		if (cin.fail())
 		{
@@ -155,7 +160,27 @@ void arrayTutorial()
 
 void addLoan()
 {
-	cout << "Adding loan to the file..." << endl;
+	string name, loanAmount, interestRate, years;
+	cout << "\nEnter Your Name: ";
+	getline(cin, name);
+	cout << "Enter Amount of Loan: ";
+	getline(cin, loanAmount);
+	cout << "Enter Interest Rate: ";
+	getline(cin, interestRate);
+	cout << "Enter the number of Years: ";
+	getline(cin, years);
+
+	// Open File
+	ofstream outFile(LOAN_FILENAME, ios::app);
+
+	// Write File
+	outFile << name << ',' << ',' << loanAmount << ',' << interestRate << ',' << years << ',' <<endl;
+
+	// Close File
+	outFile.close();
+
+	// Display Confirmation Message
+	cout << "Loan added to the file";
 }
 
 void deleteLoan()
@@ -170,6 +195,31 @@ void findLoan()
 
 void displayAllLoans()
 {
-	cout << "Displaying all loans from our files..." << endl;
+	string name, loanAmount, interestRate, years;
+
+	// Show the Report
+	cout << "\nDevry Student's Bank Loan Database\n" << endl;
+	cout << left << setw(15) << "Name" << left << setw(7) << "Amount" << left << setw(5) << "Interet Rate" << left << setw(3) << "Years" << endl;
+
+	// Open File
+	ifstream inFile(LOAN_FILENAME);
+
+	if (inFile.is_open())
+	{
+		while (inFile.peek() > -1)
+		{
+			getline(inFile, name, ',');
+			getline(inFile, loanAmount, ',');
+			getline(inFile, interestRate, ',');
+			getline(inFile, years, ',');
+
+			// Display All Loans
+			cout << left << setw(15) << name << left << setw(7) << loanAmount << left << setw(5) << interestRate << left << setw(3) << years << endl;
+
+		}
+
+		// Close File
+		inFile.close();
+	}
 }
 
