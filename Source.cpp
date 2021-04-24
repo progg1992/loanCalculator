@@ -189,7 +189,52 @@ void addLoan()
 
 void deleteLoan()
 {
-	cout << "Deleting loan from the file.." << endl;
+	// Get Loan to Delete
+	string deleteLoan;
+	bool found = false;
+	cout << "\nEnter your name to delete paid loans: ";
+	getline(cin, deleteLoan);
+
+	// Open File and Temp File
+	ifstream iFile(LOAN_FILENAME);
+	ofstream oFile(LOAN_FILENAME + ".tmp");
+
+	// Read file and write to .tmp file
+	while (iFile.peek() > -1)
+	{
+		string name, loanAmount, interestRate, years;
+		getline(iFile, name, ',');
+		getline(iFile, loanAmount, ',');
+		getline(iFile, interestRate, ',');
+		getline(iFile, years, ',');
+
+		if (name == deleteLoan)
+		{
+			found = true;
+		}
+		else
+		{
+			// Write Loan to .tmp file
+			oFile << name << ',' << ',' << loanAmount << ',' << interestRate << ',' << years << ',' << endl;
+
+		}
+	}
+
+	// Close Files
+	iFile.close();
+	oFile.close();
+
+	// Delete Old File
+	remove(LOAN_FILENAME.c_str());
+
+	// Rename .tmp to Loan.csv
+	rename((LOAN_FILENAME + ".tmp").c_str(), LOAN_FILENAME.c_str());
+
+	// Display Confirmation or Error Message
+	if (found)
+		cout << "\nLoan was deleted" << endl;
+	else
+		cout << "\n Loan could not be deleted. Please call your local branch." << endl;
 }
 
 void findLoan()
