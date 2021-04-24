@@ -231,7 +231,6 @@ void findLoan()
 			cout << "\n" << loanOwner << " does not have any loans with us" << endl;
 		}
 	}
-	cout << "Finding loan from our files..." << endl;
 }
 
 void displayAllLoans()
