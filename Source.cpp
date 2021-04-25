@@ -28,7 +28,7 @@ int main()
 	srand(time(0));
 
 	string password = "";
-	string appPassword = "CEIS170C";
+	string appPassword = "CIS170C";
 	bool success = false;
 
 	for (int i = 0; i < 3; i++)
@@ -62,6 +62,8 @@ int main()
 
 	do
 	{
+		// Make Console background Red
+		system("color c2");
 		// Show Menu
 		system("cls");
 		cout << "Welcome to The DeVry Student Bank's Loan Calculator\n" << endl;
@@ -124,7 +126,6 @@ int main()
 		//pause
 		cout << endl;
 		system("pause");
-		system("color c2");
 	} 	while (choice != 6);
 	return 0;
 }
