@@ -124,6 +124,7 @@ int main()
 		//pause
 		cout << endl;
 		system("pause");
+		system("color c2");
 	} 	while (choice != 6);
 	return 0;
 }
